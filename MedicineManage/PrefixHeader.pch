@@ -1,0 +1,39 @@
+//
+//  PrefixHeader.pch
+//  MedicineManage
+//
+//  Created by lanou3g on 15/12/31.
+//  Copyright © 2015年 gcf. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+//判断网络状态
+#import "Reachability.h"
+
+#define NetStatus [Reachability reachabilityForInternetConnection].currentReachabilityStatus
+#define NR NotReachable
+#define WWAN ReachableViaWWAN
+#define Wifi ReachableViaWiFi
+
+//调Bug用
+#ifdef DEBUG
+#define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#define DLog(...)
+#endif
+
+
+
+#import "APPHeader.h"
+#import "KEYHeader.h"
+#import "THRHeader.h"
+#import "URLHeader.h"
+
+
+
+#endif /* PrefixHeader_pch */
